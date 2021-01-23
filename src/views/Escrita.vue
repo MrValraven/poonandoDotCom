@@ -24,16 +24,19 @@ export default {
 .textos {
   display: flex;
   flex-direction: column;
-  height: 250px;
+  height: 550px;
   border: 2px solid yellow;
 }
 
 .title {
-  color: rebeccapurple;
-  margin: 20px;
+  margin: 20px 0;
+  padding: 20px;
+  border: 2px solid blue;
 }
 
-.textos span {
+.textos .title span {
+  width: 100%;
+
   padding: 20px;
   border: 2px solid red;
 }

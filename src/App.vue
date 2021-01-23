@@ -6,12 +6,17 @@
     <nav id="nav">
       <ul>
         <router-link class="navLinks" to="/">Home</router-link>
-        <router-link class="navLinks" :to="{ name: 'About' }">About</router-link>
-        <router-link class="navLinks" :to="{ name: 'Teatro' }">Teatro</router-link>
-        <router-link class="navLinks" :to="{ name: 'Fotografia' }">Fotografia</router-link>
+        <router-link class="navLinks" :to="{ name: 'About' }">About</router-link>|
+        <router-link class="navLinks" :to="{ name: 'Teatro' }">Teatro</router-link>|
+        <router-link class="navLinks" :to="{ name: 'Fotografia' }">Fotografia</router-link>|
         <router-link class="navLinks" :to="{ name: 'Escrita' }">Escrita</router-link>
       </ul>
     </nav>
+
+    <div class="socialMedia">
+      <a href="https://www.facebook.com/joana.calhau"><img src="./assets/facebook.svg" alt=""></a>
+      <a href="https://www.instagram.com/poonando/"><img src="./assets/instagram.svg" alt=""></a>
+    </div>
   </header>
 
   <transition mode="out-in" enter-active-class="animate fade" leave-active-class="animate fade">
@@ -29,14 +34,19 @@ export default {
 
 <style>
 
+body {
+  background-color: white;
+}
+
+
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .logo {
-  font-size: 40px;
-  margin: 20px;
+  font-size: 26px;
+  margin: 45px 0 0 0;
 }
 
 a {
@@ -54,7 +64,8 @@ a {
 }
 
 #nav {
-  padding: 30px;
+  padding-bottom: 30px;
+  margin: 35px 0 0 0;
 }
 
 #nav a {
@@ -89,4 +100,16 @@ a {
 .animate {
   animation: fade 0.3s ease-in-out;
 }
+
+.socialMedia img {
+  width: 24px;
+  margin: 45px 10px 0px 10px;
+  filter: brightness(0%);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.socialMedia img:hover {
+  filter: brightness(100%)
+}
+
 </style>

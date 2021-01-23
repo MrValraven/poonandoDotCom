@@ -2,14 +2,24 @@
   <div class="about">
     <h1>About</h1>
     <div class="introducao">
-      <img src="../assets/profilepic.jpg" alt="Fotografia por: Francisco Projeto">
+      <img class="profilePic" src="../assets/profilepic.jpg" alt="Fotografia por: Francisco Projeto">
       <div class="informacoes">
-        <p>Natural de Évora, Portugal, Joana M. Calhau (n.1997). 
+        <p>Joana M. Calhau (n.1997) é uma jovem artista natural de Évora, Portugal.
+          <br>
         O seu trabalho tenta responder a necessidades pessoais de experimentar, 
         conhecer novos métodos e formas de se envolver com a arte, nos diversos ramos artísticos:
         ​Música, Artes Plásticas e Visuais, Teatro, Escrita, Performance e Fotografia.</p>
-        <p>Email: <a href="mailto:joanacalhau97@gmail.com">joanacalhau97@gmail.com</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/corpo.inquieto/">@corpo.inquieto</a> e  <a href="https://www.instagram.com/poonando/">@poonando</a> </p>
+        <div class="socials">
+          <p class="Email">
+            <a href="mailto:joanacalhau97@gmail.com"><img src="../assets/gmail.svg" alt=""></a>
+            <span><a href="mailto:joanacalhau97@gmail.com">joanacalhau97@gmail.com</a></span> 
+          </p>
+          <p>
+            <a href="https://www.instagram.com/poonando/"><img src="../assets/instagram.svg" alt=""></a> 
+            <span><a href="https://www.instagram.com/corpo.inquieto/">@corpo.inquieto</a> | <a href="https://www.instagram.com/poonando/">@poonando</a></span>
+          </p>
+        </div>
+        
       </div>
     </div>
       
@@ -90,8 +100,43 @@ export default {
   text-align: initial;
 }
 
+.about .container {
+  display: flex;
+  flex-direction: column;
+  float: left;
+}
+
 .introducao {
   display: flex;
 }
+
+.informacoes {
+  text-align: center;
+  justify-content: center;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-around;
+}
+
+.socials img {
+  width: 40px;
+}
+
+.socials p {
+  display: flex;
+  flex-direction: column;
+}
+
+.socials span {
+  margin-top: 15px;
+}
+
+.Email p {
+  margin: 0 10px;
+}
+
+
 
 </style>

@@ -6,7 +6,7 @@
         <img src="../assets/fotocena.jpg" alt="">
       </div>
       <div class="fotografias">
-        <h1>PROJETOS FOTOGRÁFICOS PESSOAIS</h1>
+        <h1>PROJETOS PESSOAIS</h1>
         <img src="../assets/fotopessoal.jpg" alt="">
       </div>
     </div>
@@ -32,17 +32,23 @@ export default {
 .fotografias {
   border-radius: 25px;
   padding: 20px;
-  margin: 10px;
+  margin: 0 30px;
   transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
   cursor: pointer;
 }
 
 .fotografias:hover {
   box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-  }
+}
+
+.fotografias img {
+  height: 500px;
+  opacity: 0.95;
+  transition: opacity 0.6s cubic-bezier(.79,.21,.06,.81);
+}
 
 .fotografias img:hover {
-  opacity: 0.95;
+  opacity: 1;
 }
 
 
