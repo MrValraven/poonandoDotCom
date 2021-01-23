@@ -2,7 +2,7 @@
   <div class="about">
     <h1>About</h1>
     <div class="introducao">
-      <img src="../assets/logo.png" alt="Fotografia por: Francisco Projeto">
+      <img src="../assets/profilepic.jpg" alt="Fotografia por: Francisco Projeto">
       <div class="informacoes">
         <p>Natural de Évora, Portugal, Joana M. Calhau (n.1997). 
         O seu trabalho tenta responder a necessidades pessoais de experimentar, 

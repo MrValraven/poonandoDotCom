@@ -1,15 +1,15 @@
 <template>
   <header>
     <div class="logo">
-      <router-link to="/">Joana Margarida Calhau</router-link>
+      <router-link class="logoName" to="/">Joana Margarida Calhau</router-link>
     </div>
     <nav id="nav">
       <ul>
-        <router-link to="/">Home</router-link>
-        <router-link :to="{ name: 'About' }">About</router-link>
-        <router-link :to="{ name: 'Teatro' }">Teatro</router-link>
-        <router-link :to="{ name: 'Fotografia' }">Fotografia</router-link>
-        <router-link :to="{ name: 'Escrita' }">Escrita</router-link>
+        <router-link class="navLinks" to="/">Home</router-link>
+        <router-link class="navLinks" :to="{ name: 'About' }">About</router-link>
+        <router-link class="navLinks" :to="{ name: 'Teatro' }">Teatro</router-link>
+        <router-link class="navLinks" :to="{ name: 'Fotografia' }">Fotografia</router-link>
+        <router-link class="navLinks" :to="{ name: 'Escrita' }">Escrita</router-link>
       </ul>
     </nav>
   </header>
@@ -28,6 +28,21 @@ export default {
 </script>
 
 <style>
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 40px;
+  margin: 20px;
+}
+
+a {
+  text-decoration: none;
+  list-style-type: none;
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -50,6 +65,10 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.navLinks {
+  font-size: 24px;
 }
 
 @keyframes fade {

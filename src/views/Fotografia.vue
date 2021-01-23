@@ -10,6 +10,8 @@
         <img src="../assets/fotopessoal.jpg" alt="">
       </div>
     </div>
+
+    
   </section>
 </template>
 
@@ -28,6 +30,7 @@ export default {
 }
 
 .fotografias {
+  border-radius: 25px;
   padding: 20px;
   margin: 10px;
   transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
@@ -35,14 +38,11 @@ export default {
 }
 
 .fotografias:hover {
-  border-radius: 25px;
-  background: #ffffff;
-  box-shadow:  35px 35px 80px #999999,
-              -35px -35px 80px #ffffff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
   }
 
-.fotografias img {
-  /* width: 250px; */
+.fotografias img:hover {
+  opacity: 0.95;
 }
 
 
