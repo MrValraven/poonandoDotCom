@@ -19,6 +19,8 @@
     </div>
   </header>
 
+  
+
   <transition mode="out-in" enter-active-class="animate fade" leave-active-class="animate fade">
     <router-view/>
   </transition>
@@ -34,6 +36,8 @@ export default {
 
 <style>
 
+
+
 body {
   background-color: white;
 }
@@ -42,6 +46,8 @@ body {
 header {
   display: flex;
   justify-content: space-around;
+
+
 }
 
 .logo {

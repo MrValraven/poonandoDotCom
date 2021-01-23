@@ -4,6 +4,9 @@ import About from '../views/About.vue'
 import Teatro from '../views/Teatro.vue'
 import Fotografia from '../views/Fotografia.vue'
 import Escrita from '../views/Escrita.vue'
+import Poema from '../views/escrita/Poema.vue'
+import Texto from '../views/escrita/Texto.vue'
+import Menstruacao from '../views/escrita/Menstruacao.vue'
 
 
 const routes = [
@@ -32,6 +35,22 @@ const routes = [
     path: '/escrita',
     name: 'Escrita',
     component: Escrita
+  },
+  {
+    path: '/tempo',
+    name: 'Poema',
+    component: Poema
+  },
+  {
+    path: '/escrita/:nome',
+    name: 'Texto',
+    component: Texto,
+    props: true,
+  },
+  {
+    path: '/a-menstruacao',
+    name: 'Menstruacao',
+    component: Menstruacao
   },
 ]
 

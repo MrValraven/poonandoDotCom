@@ -3,11 +3,15 @@
     <div class="container">
       <div class="fotografias">
         <h1>FOTOGRAFIA DE CENA</h1>
-        <img src="../assets/fotocena.jpg" alt="">
+        <img src="@/assets/fotocena.jpg" alt="">
       </div>
       <div class="fotografias">
         <h1>PROJETOS PESSOAIS</h1>
-        <img src="../assets/fotopessoal.jpg" alt="">
+        <img src="@/assets/fotopessoal.jpg" alt="">
+      </div>
+      <div class="fotografias">
+        <h1>FILM EM FOTOGRAFIA ANALÓGICA</h1>
+        <img src="@/assets/fotocena.jpg" alt="">
       </div>
     </div>
 
@@ -23,7 +27,7 @@ export default {
 
 <style>
 
-.container {
+.fotografia .container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,8 +35,8 @@ export default {
 
 .fotografias {
   border-radius: 25px;
-  padding: 20px;
-  margin: 0 30px;
+  padding: 15px;
+  margin: 0 30px 10px 30px;
   transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
   cursor: pointer;
 }
