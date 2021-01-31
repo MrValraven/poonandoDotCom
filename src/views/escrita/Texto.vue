@@ -1,6 +1,6 @@
 <template>
   <section class="poema">
-        <img :src="require(`@/assets/img/${filename}`)" alt="">
+        <img src="" alt="">
         <div class="text">
             <h1> {{titulo }}</h1>
             <h3> {{ ano }} </h3>

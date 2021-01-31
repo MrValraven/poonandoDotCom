@@ -48,11 +48,13 @@ export default {
 .fotografias img {
   height: 500px;
   opacity: 0.95;
-  transition: opacity 0.6s cubic-bezier(.79,.21,.06,.81);
+  scale: 0.90;
+  transition: all 0.6s cubic-bezier(.79,.21,.06,.81);
 }
 
 .fotografias img:hover {
   opacity: 1;
+  scale: 200%;
 }
 
 

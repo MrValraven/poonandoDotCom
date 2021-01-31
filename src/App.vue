@@ -5,7 +5,7 @@
     </div>
     <nav id="nav">
       <ul>
-        <router-link class="navLinks" to="/">Home</router-link>
+        <router-link class="navLinks" to="/">Home</router-link>|
         <router-link class="navLinks" :to="{ name: 'About' }">About</router-link>|
         <router-link class="navLinks" :to="{ name: 'Teatro' }">Teatro</router-link>|
         <router-link class="navLinks" :to="{ name: 'Fotografia' }">Fotografia</router-link>|

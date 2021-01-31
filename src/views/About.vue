@@ -4,7 +4,7 @@
       <img class="profilePic" src="../assets/profilepic.jpg" alt="Fotografia por: Francisco Projeto">
       <div class="informacoes">
         <p>Joana M. Calhau (n.1997) é uma jovem artista natural de Évora, Portugal.
-          <br>
+        <br>
         O seu trabalho tenta responder a necessidades pessoais de experimentar, 
         conhecer novos métodos e formas de se envolver com a arte, nos diversos ramos artísticos:
         ​Música, Artes Plásticas e Visuais, Teatro, Escrita, Performance e Fotografia.</p>
@@ -24,35 +24,46 @@
       
 
       <div class="container">
-        <div v-if="showingEducation" class="educacao">
-          <h2>Educação</h2>
-          <ul  v-for="educaçao in educacao" :key="educaçao.id">
-            <li>
-              <p>{{ educaçao.curso }} | {{ educaçao.ano }}</p>
-              <p>{{ educaçao.local }}</p>
-            </li>
+        <div class="indice">
+          <ul>
+            <li @click="showEducation">Educação</li>
+            <li @click="showWorkshops">Formação</li>
+            <li @click="showWork">Trabalhos / Projetos</li>
           </ul>
         </div>
-        <div v-if="showingWorkshops" class="formacao">
-          <h2>Formação</h2>
-          <ul v-for="formacao in formacoes" :key="formacao.id">
-            <h3 class="data">{{ formacao.ano}}</h3>
-            <li>
-              <p>{{ formacao.nome }}</p>
-              <p>{{ formacao.local }}</p>
-            </li>
+
+        <div v-if="showingEducation" class="educacao info">
+          <h1>Educação</h1>
+            <ul v-for="educaçao in educacao" :key="educaçao.id">
+              <li>
+                <p>{{ educaçao.curso }} | {{ educaçao.ano }}</p>
+                <p>{{ educaçao.local }}</p>
+              </li>
+            </ul>
+        </div>
+
+        <div v-if="showingWorkshop" class="formacao info">
+          <h1>Formação</h1>
+            <ul v-for="formacao in formacoes" :key="formacao.id">
+              <h3 class="data">{{ formacao.ano }}</h3>
+              <li>
+                <p>{{ formacao.nome }}</p>
+                <p>{{ formacao.local }}</p>
+              </li>
           </ul>
         </div>
-        <div v-if="showingWork" class="trabalho">
-          <h2>Trabalhos / Projetos</h2>
-          <ul v-for="trabalho in trabalhos" :key="trabalho.id">
-            <h3>{{ trabalho.ano }} </h3>
-            <li>
-              <p>{{ trabalho.nome }}</p>
-              <p>{{ trabalho.local }}</p>
-            </li>
-          </ul>
+
+        <div v-if="showingWork" class="trabalho info">
+          <h1>Trabalhos / Projetos</h1>
+            <ul v-for="trabalho in trabalhos" :key="trabalho.id">
+              <h3>{{ trabalho.ano }} </h3>
+              <li>
+                <p>{{ trabalho.nome }}</p>
+                <p>{{ trabalho.local }}</p>
+              </li>
+            </ul>
         </div>
+
       </div>
 
   </div>
@@ -62,6 +73,11 @@
 export default {
   data() {
     return {
+
+      showingEducation: true,
+      showingWorkshop: false,
+      showingWork: false,
+
       educacao: [
         {ano: '2019 - Presente', curso: 'Mestrado em Estudos Artísticos', local: 'FLUC - Faculdade de Letras da Universidade de Coimbra, Portugal'},
         {ano: '2018', curso: 'Erasmus no curso de Puppetry', local: 'VŠMU - Vysoká Škola Múzických Umení (Academia de Artes Performativas de Bratislava), Eslováquia'},
@@ -158,20 +174,41 @@ export default {
 
 .about .container {
   display: flex;
-  flex-direction: column;
-  float: left;
+  flex-direction: row;
   margin: 0;
   padding: 0;
-  border: 2px solid yellow;
+  width: 100%;
 }
 
-.data {
-  margin-left: 17px;
+.about .container .indice {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-width: 40%;
+  margin: 10px;
+  border: 2px solid aquamarine;
 }
 
-.about .container h2 {
+.about .container .indice ul {
+  border: 2px solid blue;
+  list-style-type: none;
+}
+
+.about .container .indice li {
+  justify-content: center;
+  align-content: center;
+  text-align: center;
   border: 2px solid red;
   margin: 10px;
+  min-width: 40%;
+  height: 150px;
+  cursor: pointer;
+}
+
+.about .container .info {
+  width: 60%;
+  margin: 10px;
+  border: 2px solid yellow;
 }
 
 </style>
