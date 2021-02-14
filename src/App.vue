@@ -1,66 +1,131 @@
 <template>
-  <header>
-    <div class="logo">
-      <router-link class="logoName" to="/">Joana Margarida Calhau</router-link>
-    </div>
-    <nav id="nav">
-      <ul>
-        <router-link class="navLinks" to="/">Home</router-link>|
-        <router-link class="navLinks" :to="{ name: 'About' }">About</router-link>|
-        <router-link class="navLinks" :to="{ name: 'Teatro' }">Teatro</router-link>|
-        <router-link class="navLinks" :to="{ name: 'Fotografia' }">Fotografia</router-link>|
-        <router-link class="navLinks" :to="{ name: 'Escrita' }">Escrita</router-link>
-      </ul>
-    </nav>
+  <div id="appi">
+    <NavbarMobile id="mobileNav"/>
+    <div class="content" :class="{'open':showNav}">
 
-    <div class="socialMedia">
-      <a href="https://www.facebook.com/joana.calhau"><img src="./assets/facebook.svg" alt=""></a>
-      <a href="https://www.instagram.com/poonando/"><img src="./assets/instagram.svg" alt=""></a>
-    </div>
-  </header>
-
+      <header class="top-bar" >   
+          <div id="navigation-icon" v-if="mobileView" @click="showNav = !showNav">
+            <i class="fa fa-bars"><span class="menuText">MENU</span></i>
+          </div>
+          <Navbar v-if="!mobileView" />
+        </header>
+        
+        <transition mode="out-in" enter-active-class="animate fade" leave-active-class="animate fade">
+          <router-view></router-view>
+        </transition>
+    </div>  
+  </div>
   
-
-  <transition mode="out-in" enter-active-class="animate fade" leave-active-class="animate fade">
-    <router-view/>
-  </transition>
-
 </template>
 
 <script>
 
+import Navbar from './components/Navbar.vue';
+import NavbarMobile from './components/NavbarMobile.vue'
+
 export default {
+  data: () => {
+    return {
+      showNav: false,
+      mobileView: false,
+    }
+  },
+
+  components: {
+    Navbar,
+    NavbarMobile,
+  },
   
+  methods: {
+    handleView() {
+      this.mobileView = window.innerWidth <= 1024;
+    }
+  },
+  created() {
+    this.handleView();
+    window.addEventListener('resize', this.handleView);
+  }
 }
 </script>
 
 <style>
 
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
 
+* {
+  box-sizing: content-box;
+}
 
 body {
-  background-color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
 }
 
-
-header {
-  display: flex;
-  justify-content: space-around;
-
-
-}
-
-.logo {
-  font-size: 26px;
-  margin: 45px 0 0 0;
-}
-
-a {
-  text-decoration: none;
+ul, a {
   list-style-type: none;
+  text-decoration: none;
 }
 
-#app {
+#appi {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.top-bar {
+  display: flex;
+  margin-bottom: 150px;
+  width: 100%;
+}
+
+#navigation-icon {
+  padding: 10px 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#navigation-icon i {
+  font-size: 2rem;
+}
+
+#mobileNav {
+  border: 2px solid red;
+  font-size: 1.5em;
+}
+
+.content {
+  position: absolute;
+  margin: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: #f7f7f7;
+  transition: 1s transform cubic-bezier(0, .12, .14, 1);
+}
+
+header .menuText {
+  margin-left: 10px;
+  font-size: 1em;
+  letter-spacing: 2px;
+}
+
+
+/* 
+header {
+  position: relative;
+  /* display: flex;
+  justify-content: space-around; 
+  border: 2px solid red;
+  z-index: 1;
+}
+
+#appi {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -68,26 +133,7 @@ a {
   color: #2c3e50;
   overflow: hidden;
 }
-
-#nav {
-  padding-bottom: 30px;
-  margin: 35px 0 0 0;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-  padding: 10px;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-.navLinks {
-  font-size: 24px;
-}
-
+*/
 @keyframes fade {
 
   0% {
@@ -107,15 +153,8 @@ a {
   animation: fade 0.3s ease-in-out;
 }
 
-.socialMedia img {
-  width: 24px;
-  margin: 45px 10px 0px 10px;
-  filter: brightness(0%);
-  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.socialMedia img:hover {
-  filter: brightness(100%)
+.open {
+  transform: translateX(150px);
 }
 
 </style>

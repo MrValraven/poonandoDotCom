@@ -1,7 +1,6 @@
 <template>
   <div class="about">
     <div class="introducao">
-      <img class="profilePic" src="../assets/profilepic.jpg" alt="Fotografia por: Francisco Projeto">
       <div class="informacoes">
         <p>Joana M. Calhau (n.1997) é uma jovem artista natural de Évora, Portugal.
         <br>
@@ -10,61 +9,59 @@
         ​Música, Artes Plásticas e Visuais, Teatro, Escrita, Performance e Fotografia.</p>
         <div class="socials">
           <p class="Email">
-            <a href="mailto:joanacalhau97@gmail.com"><img src="../assets/gmail.svg" alt=""></a>
+            <a href="mailto:joanacalhau97@gmail.com"><i class="fa fa-envelope-o"></i></a>
             <span><a class="links" href="mailto:joanacalhau97@gmail.com">joanacalhau97@gmail.com</a></span> 
           </p>
           <p>
-            <a href="https://www.instagram.com/poonando/"><img src="../assets/instagram.svg" alt=""></a> 
+            <a href="https://www.instagram.com/poonando/"><i class="fa fa-instagram"></i></a> 
             <span><a class="links" href="https://www.instagram.com/corpo.inquieto/">@corpo.inquieto</a> | <a class="links" href="https://www.instagram.com/poonando/">@poonando</a></span>
           </p>
         </div>
         
       </div>
+      <img class="profilePic" src="../assets/profilepic.jpg" alt="Fotografia por: Francisco Projeto">
     </div>
       
-
-      <div class="container">
-        <div class="indice">
-          <ul>
-            <li @click="showEducation">Educação</li>
-            <li @click="showWorkshops">Formação</li>
-            <li @click="showWork">Trabalhos / Projetos</li>
-          </ul>
-        </div>
-
-        <div v-if="showingEducation" class="educacao info">
-          <h1>Educação</h1>
-            <ul v-for="educaçao in educacao" :key="educaçao.id">
-              <li>
-                <p>{{ educaçao.curso }} | {{ educaçao.ano }}</p>
-                <p>{{ educaçao.local }}</p>
-              </li>
-            </ul>
-        </div>
-
-        <div v-if="showingWorkshop" class="formacao info">
-          <h1>Formação</h1>
-            <ul v-for="formacao in formacoes" :key="formacao.id">
-              <h3 class="data">{{ formacao.ano }}</h3>
-              <li>
-                <p>{{ formacao.nome }}</p>
-                <p>{{ formacao.local }}</p>
-              </li>
-          </ul>
-        </div>
-
-        <div v-if="showingWork" class="trabalho info">
-          <h1>Trabalhos / Projetos</h1>
-            <ul v-for="trabalho in trabalhos" :key="trabalho.id">
-              <h3>{{ trabalho.ano }} </h3>
-              <li>
-                <p>{{ trabalho.nome }}</p>
-                <p>{{ trabalho.local }}</p>
-              </li>
-            </ul>
-        </div>
-
+    <div class="container">
+      <div class="indice">
+        <ul>
+          <li @click="showEducation"><a>🏫 Educação</a></li>
+          <li @click="showWorkshops"><a >Formação 📜</a></li>
+          <li @click="showWork"><a>🎭 Trabalhos / Projetos </a></li>
+        </ul>
       </div>
+
+      <div v-if="showingEducation" class="educacao info">
+        <h1>Educação</h1>
+          <ul v-for="educaçao in educacao" :key="educaçao.id">
+            <li>
+              <p>{{ educaçao.curso }} | {{ educaçao.ano }}</p>
+              <p class="local">{{ educaçao.local }}</p>
+            </li>
+          </ul>
+      </div>
+
+      <div v-if="showingWorkshop" class="formacao info">
+        <h1>Formação</h1>
+           <ul v-for="formacao in formacoes" :key="formacao.id">
+            <li>
+              <p>{{ formacao.nome }}</p>
+              <p class="local">{{ formacao.local }} | {{ formacao.ano }}</p>
+            </li>
+         </ul>
+      </div>
+
+      <div v-if="showingWork" class="trabalho info">
+        <h1>Trabalhos / Projetos</h1>
+          <ul v-for="trabalho in trabalhos" :key="trabalho.id">
+            <li>
+              <p>{{ trabalho.nome }}</p>
+              <p class="local">{{ trabalho.local }} | {{ trabalho.ano }}</p>
+            </li>
+          </ul>
+      </div>
+
+    </div>
 
   </div>
 </template>
@@ -128,47 +125,54 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 
 .about {
+  /* position: absolute;
+  top: 0;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 16px;
+  background-color: #ffffff;
+  transition: .3s all ease-in-out; */
   text-align: initial;
-  color: black;
   margin-top: 30px;
+  color: #2c3e50;
 }
 
-.introducao {
+.about .introducao {
   display: flex;
 }
 
-.informacoes {
+.about .introducao .informacoes {
   text-align: center;
   justify-content: center;
 }
 
-.socials {
+.about .introducao .informacoes .socials {
   display: flex;
   justify-content: space-around;
 }
 
-.socials img {
+.about .introducao .informacoes .socials img {
   width: 40px;
 }
 
-.socials p {
+.about .introducao .informacoes .socials p {
   display: flex;
   flex-direction: column;
 }
 
-.socials span {
+.about .introducao .informacoes .socials span {
   margin-top: 15px;
   text-decoration: none;
 }
 
-.links {
+.about .introducao .informacoes .socials .links {
   color: black;
 }
 
-.Email p {
+.about .introducao .informacoes .socials .Email p {
   margin: 0 10px;
 }
 
@@ -184,31 +188,94 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  min-width: 40%;
+  min-width: 45%;
   margin: 10px;
   border: 2px solid aquamarine;
 }
 
 .about .container .indice ul {
   border: 2px solid blue;
+  width: 80%;
   list-style-type: none;
 }
 
 .about .container .indice li {
-  justify-content: center;
-  align-content: center;
   text-align: center;
-  border: 2px solid red;
-  margin: 10px;
-  min-width: 40%;
-  height: 150px;
+  margin: 25px;
+  width: 350px;
+  height: 70px;
+	padding: 30px 30px;
   cursor: pointer;
+	border-radius: 10px;
+	background-color: #f5f5f5;
+	box-shadow: -7px -7px 20px 0px #fff9,
+              -4px -4px 5px 0px #fff9,
+              7px 7px 20px 0px #0002,
+              4px 4px 5px 0px #0001,
+              inset 0px 0px 0px 0px #fff9,
+              inset 0px 0px 0px 0px #0001,
+              inset 0px 0px 0px 0px #fff9,
+              inset 0px 0px 0px 0px #0001;
+  transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
+}  
+
+.about .container .indice li:hover {
+	box-shadow: 0px 0px 0px 0px #fff9,
+	0px 0px 0px 0px #fff9,
+	0px 0px 0px 0px #0001,
+	0px 0px 0px 0px #0001,
+	inset -7px -7px 20px 0px #fff9,
+	inset -4px -4px 5px 0px #fff9,
+	inset 7px 7px 20px 0px #0003,
+	inset 4px 4px 5px 0px #0001;
+}
+
+.about .container .indice a {
+	height: 45px;
+	font-size: 30px;
+	color: #555;
+  display: inline-block;
+	position: relative;
+	padding: 10px;
+}
+
+.about .container .indice a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color:  #42b983;;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.about .container .indice a:hover::before {
+  color: #000000;
+  transform: scaleX(1);
+	transform-origin: bottom left;
 }
 
 .about .container .info {
-  width: 60%;
+  width: 55%;
   margin: 10px;
   border: 2px solid yellow;
+}
+
+.about .container .info h1  {
+  font-size: 50px;
+  padding-left: 20px;
+  font-weight: lighter;
+}
+
+.about .container .info p {
+  font-size: 25px;
+}
+
+.about .container .info .local {
+  font-size: 20px;
 }
 
 </style>
